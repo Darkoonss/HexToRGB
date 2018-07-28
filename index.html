@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Hex To Rgb </title>
+        <meta charset="UTF-8">
+        <meta name="author" content="@Darkoonss">
+        
+        <!-- LINK BOOTSTRAP 4.1-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+        <!--LINK FONTAWESOME 5.2.0-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    </head>
+    <body id="body" style="background-color: blank;">
+
+        <!-- INICIO NAVBAR-->
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand">Conversor de cores de HEX para RGB</a>
+            <form class="form-inline">
+              <a href="https://github.com/Darkoonss/HexToRGB.github.io" target="blank"><i class="fab fa-github fa-2x"></i></a>
+            </form>
+          </nav>
+        <!-- FIM NAVBAR-->
+
+        <!-- INICIO FORMULARIO-->
+        <div style="text-align: center; width: 50%; margin-left: 30%;margin-top: 20%">
+            <input class="form-control form-control-lg" type="text" onchange="hex_to_RGB((this.value).trim())" placeholder="Por favor, digite a cor em hexadecimal">
+            <br>
+            <input class="form-control form-control-lg" id="rgb" type="text" placeholder="Valor em RGB" disabled>
+        </div>
+        <!-- FIM FORMULARIO-->
+
+        <script>
+            function hex_to_RGB(hex) {
+                var m = hex.match(/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i);
+
+                var r= parseInt(m[1], 16);
+                var g= parseInt(m[2], 16);
+                var b= parseInt(m[3], 16);
+
+                document.getElementById("body").style.backgroundColor = ('rgb('+r+','+g+','+b+')');
+                document.getElementById("rgb").value = ('rgb('+r+','+g+','+b+')');
+
+                console.log('R:'+r+' - G:'+g+' - B:'+b);
+                console.log('RGB:('+r+','+g+','+b+')');
+
+            }
+        </script>
+
+    </body>
+</html>
